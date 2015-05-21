@@ -1,0 +1,3 @@
+clothes.controller('ClothesStoreController', [function() {
+
+}]);
