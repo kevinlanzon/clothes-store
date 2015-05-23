@@ -1,0 +1,27 @@
+{
+  "name": "clothes-store",
+  "version": "1.0.0",
+  "description": "Clothes Store -----------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinlanzon/clothes-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinlanzon/clothes-store/issues"
+  },
+  "homepage": "https://github.com/kevinlanzon/clothes-store#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.32",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "protractor": "^2.1.0"
+  }
+}
