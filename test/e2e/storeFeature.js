@@ -1,8 +1,8 @@
-describe('Homepage', function() {
+describe('Store', function() {
 
   beforeEach(function() {
     browser.get('index.html');
-    productList = element.all(by.tagName('h5'));
+    productList = element.all(by.tagName('h4'));
   });
 
   it('has a title', function() {
@@ -11,6 +11,23 @@ describe('Homepage', function() {
 
   it('displays 13 products', function() {
     expect(productList.count()).toBe(13);
+  });
+
+  it('displays the product name', function() {
+    expect(element(by.binding('product.name')).isPresent()).toBe(true);
+  });
+
+  it('displays the product price', function() {
+    expect(element(by.binding('product.price')).isPresent()).toBe(true);
+  });
+
+  it('displays the product colour', function() {
+    expect(element(by.binding('product.colour')).isPresent()).toBe(true);
+  });
+
+  it('displays an Add to Cart button for each product', function() {
+    expect(element(by.id('add-to-cart')).getText()).toEqual('Add to Cart');
+    expect(element(by.id('add-to-cart')).isPresent()).toBe(true);
   });
 
   it('should filter the product list as a user types into the search box', function() {

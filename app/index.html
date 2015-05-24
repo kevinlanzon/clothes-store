@@ -10,16 +10,20 @@
     <script src="js/storeControllers.js"></script>
   </head>
     <body ng-controller="ProductListCtrl">
+      <h1>{{"Clothes Store"}}</h1>
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-2">
             Search: <input ng-model="query">
+            </select>
           </div>
           <div class="col-md-10">
-        <h1>{{"Clothes Store"}}</h1>
           <ul class="products">
             <li ng-repeat="product in products | filter:query">
-              <h5>{{ product.name }}</h5>
+              <h4>{{ product.name }}</h4>
+              <p>{{ product.price | currency: '£' }}</p>
+              <p>{{ product.colour }}</p>
+              <button id="add-to-cart" type="button" class="btn btn-info" ng-show="product.name">Add to Cart</button>
           </li>
         </ul>
       </div>
