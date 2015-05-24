@@ -10,11 +10,16 @@
     <script src="js/storeControllers.js"></script>
   </head>
     <body ng-controller="ProductListCtrl">
-      <div class="container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2">
+            Search: <input ng-model="query">
+          </div>
+          <div class="col-md-10">
         <h1>{{"Clothes Store"}}</h1>
-        <ul>
-          <li ng-repeat="product in products">
-            <h5>{{ product.name }}</h5>
+          <ul class="products">
+            <li ng-repeat="product in products | filter:query">
+              <h5>{{ product.name }}</h5>
           </li>
         </ul>
       </div>
