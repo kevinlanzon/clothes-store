@@ -26,7 +26,6 @@ describe('Store', function() {
   });
 
   it('displays an Add to Cart button for each product', function() {
-    expect(element(by.id('add-to-cart')).getText()).toEqual('Add to Cart');
     expect(element(by.id('add-to-cart')).isPresent()).toBe(true);
   });
 
