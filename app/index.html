@@ -21,8 +21,10 @@
           <ul class="products">
             <li ng-repeat="product in products | filter:query">
               <h4>{{ product.name }}</h4>
-              <p>{{ product.price | currency: '£' }}</p>
-              <p>{{ product.colour }}</p>
+              <p>Description: {{ product.colour }}</p>
+              <p>Category: {{ product.category }}</p>
+              <p>Available: {{product.quantity }}</p>
+              <p>Price: {{ product.price | currency: '£' }}</p>
               <button id="add-to-cart" type="button" class="btn btn-info" ng-show="product.name">Add to Cart</button>
           </li>
         </ul>

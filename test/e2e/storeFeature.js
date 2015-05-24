@@ -25,6 +25,14 @@ describe('Store', function() {
     expect(element(by.binding('product.colour')).isPresent()).toBe(true);
   });
 
+  it('displays the product colour', function() {
+    expect(element(by.binding('product.category')).isPresent()).toBe(true);
+  });
+
+  it('displays the product stock count', function() {
+    expect(element(by.binding('product.quantity')).isPresent()).toBe(true);
+  });
+
   it('displays an Add to Cart button for each product', function() {
     expect(element(by.id('add-to-cart')).isPresent()).toBe(true);
   });
