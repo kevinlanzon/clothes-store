@@ -37,11 +37,13 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">Shopping Cart</h4>
+        </div>
+        <div class="panel-body" ng-repeat="product in shoppingCart track by $index">
+          {{product.name}} : {{product.price | currency: '£'}}
+          <a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-sm" role="button">X</a>
+        </div>
       </div>
-    <div class="panel-body" ng-repeat="product in shoppingCart track by $index">
-      {{product.name}} : {{product.price | currency: '£'}}
     </div>
-    </div>
-    </div>
+
   </body>
 </html>

@@ -8,7 +8,7 @@ describe('storeControllers', function() {
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('products/productList.json').
-          respond([{name: 'Flip Flop'}, {name: 'Suede Shoes'}]);
+          respond([{name: 'Flip Flops'}, {name: 'Cotton Shorts'}]);
 
       scope = $rootScope.$new();
       ctrl = $controller('ProductListCtrl', {$scope: scope});
@@ -17,7 +17,7 @@ describe('storeControllers', function() {
     it('should create "products" model with 2 products fetched from xhr', function() {
       expect(scope.products).toBeUndefined();
       $httpBackend.flush();
-      expect(scope.products).toEqual([{name: 'Flip Flop'}, {name: 'Suede Shoes'}]);
+      expect(scope.products).toEqual([{name: 'Flip Flops'}, {name: 'Cotton Shorts'}]);
     });
 
     it('initializes with an empty shopping cart', function(){
@@ -25,9 +25,14 @@ describe('storeControllers', function() {
     });
 
     it('can add a product to the shopping cart', function() {
-      $httpBackend.flush()
-      scope.addProduct(scope.products[0]);
+      $httpBackend.flush();
+      scope.addProduct(0);
       expect(scope.shoppingCart.length).toEqual(1);
+    });
+
+    it('can remove a product from the shopping cart', function(){;
+      scope.removeProduct(0);
+      expect(scope.shoppingCart.length).toEqual(0);
     });
   });
 });

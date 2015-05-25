@@ -3,6 +3,7 @@ describe('Store', function() {
   beforeEach(function() {
     browser.get('index.html');
     products = element.all(by.repeater('product in products'));
+    query = element(by.model('query'));
   });
 
   it('has a title', function() {
@@ -34,15 +35,13 @@ describe('Store', function() {
   });
 
   it('displays an Add to Cart button for each product', function() {
-    expect(element(by.id('add-to-cart')).isPresent()).toBe(true);
+    expect(element(by.id('add-to-cart')).isPresent()).toEqual(true);
   });
 
   it('should filter the product list as a user types into the search box', function() {
-    var query = element(by.model('query'));
     expect(products.count()).toEqual(13);
     query.sendKeys('Suede Shoes');
     expect(products.count()).toEqual(1);
-
     query.clear();
     query.sendKeys('Flip Flops');
     expect(products.count()).toEqual(2);
