@@ -41,7 +41,7 @@ describe('storeControllers', function() {
 
     it('can apply a £5 discount voucher to the shopping cart total', function() {
       scope.addProduct(0);
-      scope.addDiscount('fiveOff');
+      scope.addDiscount('£ 5 Discount Voucher');
       expect(scope.cartTotal()).toEqual(45);
     });
   });

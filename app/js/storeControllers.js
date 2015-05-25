@@ -7,12 +7,11 @@ app.controller('ProductListCtrl', ['$scope', '$http', function($scope, $http) {
   });
 
   $scope.shoppingCart = [];
-  $scope.total = 0;
-  $scope.totalDiscount = [];
+  $scope.discount = [];
   $scope.vouchers = [
-    { name: 'fiveOff', value: 5, spendReq: 0    },
-    { name: 'tenOoff', value: 10, spendReq: 50 },
-    { name: 'fifteenOff', value: 15, spendReq: 75 }
+    { name: '£ 5 Discount Voucher', value: 5, minSpend: 0   },
+    { name: '£10 Discount Voucher', value: 10, minSpend: 50 },
+    { name: '£15 Discount Voucher', value: 15, minSpend: 75 }
   ];
 
   $scope.addProduct = function(index) {
@@ -24,10 +23,20 @@ app.controller('ProductListCtrl', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.cartTotal = function() {
-    $scope.total = 0;
+    var total = 0;
     angular.forEach($scope.shoppingCart, function(product) {
-      $scope.total += product.price;
+      total += product.price;
     });
-    return $scope.total;
+
+    angular.forEach($scope.discount, function(voucher) {
+      total -= voucher.value;
+    })
+    return total;
+  };
+
+  $scope.addDiscount = function(voucher) {
+    if(($scope.cartTotal() >= voucher.minSpend)) {
+      $scope.discount.push(voucher);
+    };
   };
 }]);

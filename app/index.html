@@ -44,6 +44,12 @@
           <div class="panel-body" ng-repeat="product in shoppingCart track by $index">
             <strong>{{product.name}} : {{product.price | currency: '£'}}</strong>
             <a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-xs" role="button">X</a>
+
+            <div class="panel-body" ng-repeat="voucher in vouchers">
+              <a href ng-click="addDiscount(voucher)" class="btn btn-success btn-sm" role="button">{{voucher.name}}</a>
+           </div>
+
+
           </div>
         </div>
       </div>
