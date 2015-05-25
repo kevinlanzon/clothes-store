@@ -15,19 +15,20 @@
     <body ng-controller="ProductListCtrl" class="container">
 
       <nav class="navbar navbar-default"><h1>Clothes Store</h1>
-        <input class="navbar navbar-default" ng-model="query" placeholder="Search">
+        <input class="navbar navbar-right" ng-model="query" placeholder="Search">
       </nav>
 
       <div class="col-md-8">
-          <div class="col-sm-4" ng-repeat="product in products | filter:query">
+          <div class="col-sm-6" ng-repeat="product in products | filter:query">
           <div class="thumbnail">
             <img src="{{product.image}}">
             <h4>{{ product.name }}</h4>
             <p>Description: {{ product.colour }}</p>
             <p>Category: {{ product.category }}</p>
-            <p>Available: {{product.quantity }}</p>
+            <p>{{product.quantity }} Left in Stock</p>
             <p><strong>Price: {{ product.price | currency: '£' }}</strong></p>
-            <p><a href id="add-to-cart" ng-click="addProduct($index)" class="btn btn-info add-to-cart" role="button">Add to Cart</a></p>
+            <p><a href id="add-to-cart" ng-click="addProduct($index)" ng-show="product.canPurchase"class="btn btn-info">Add to Cart</a></p>
+            <button id="sold-out" type="button" class="btn btn-danger" ng-show="product.soldOut">Out of Stock</button>
         </div>
       </div>
     </div>
