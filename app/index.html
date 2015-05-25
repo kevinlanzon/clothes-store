@@ -19,7 +19,7 @@
       </nav>
 
       <div class="col-md-8">
-          <div class="col-sm-4" ng-repeat="product in products | filter:query | orderBy: 'price'">
+          <div class="col-sm-4" ng-repeat="product in products | filter:query">
           <div class="thumbnail">
             <img src="{{product.image}}">
             <h4>{{ product.name }}</h4>
@@ -37,9 +37,13 @@
         <div class="panel-heading">
           <h4 class="panel-title">Shopping Cart</h4>
         </div>
-        <div class="panel-body" ng-repeat="product in shoppingCart track by $index">
-          <strong>{{product.name}} : {{product.price | currency: '£'}}</strong>
-          <a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-sm" role="button">X</a>
+        <div>
+          <h5 class="panel panel-default cart-total">Total: {{ cartTotal() | currency: '£' }}</h5>
+        </div>
+          <div class="panel-body" ng-repeat="product in shoppingCart track by $index">
+            <strong>{{product.name}} : {{product.price | currency: '£'}}</strong>
+            <a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-xs" role="button">X</a>
+          </div>
         </div>
       </div>
     </div>

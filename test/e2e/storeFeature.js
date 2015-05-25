@@ -52,6 +52,13 @@ describe('Store', function() {
     expect(shoppingCart.count()).toEqual(0);
   });
 
+  it('should display the total value of the shopping cart', function() {
+    addProduct.click();
+    addProduct.click();
+    addProduct.click();
+    expect(element(by.css('.cart-total')).getText()).toEqual('Total: £297.00');
+  });
+
   it('should filter the product list as a user types into the search box', function() {
     expect(products.count()).toEqual(13);
     query.sendKeys('Suede Shoes');
