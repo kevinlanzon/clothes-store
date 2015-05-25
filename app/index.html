@@ -13,20 +13,20 @@
     <body ng-controller="ProductListCtrl" class="container">
       <nav class="navbar navbar-default">
         <h1>Clothes Store</h1>
-          <input class="navbar navbar-right" ng-model="query" placeholder="Search">
+        <input class="navbar navbar-right" ng-model="query" placeholder="Search">
       </nav>
-        <div class="col-md-10">
-          <div class="products">
-            <div ng-repeat="product in products | filter:query | orderBy: 'price'">
-              <img class="thumb" ng-src="{{product.image}}">
-              <h4>{{ product.name }}</h4>
-              <p>Description: {{ product.colour }}</p>
-              <p>Category: {{ product.category }}</p>
-              <p>Available: {{product.quantity }}</p>
-              <p><strong>Price: {{ product.price | currency: '£' }}</strong></p>
-              <button id="add-to-cart" type="button" class="btn btn-info" ng-show="product.name">Add to Cart</button>
-            </div>
-          </div>
+      <div class="col-md-10">
+        <div class="products">
+          <div ng-repeat="product in products | filter:query | orderBy: 'price'">
+            <img class="thumb" ng-src="{{product.image}}">
+            <h4>{{ product.name }}</h4>
+            <p>Description: {{ product.colour }}</p>
+            <p>Category: {{ product.category }}</p>
+            <p>Available: {{product.quantity }}</p>
+            <p><strong>Price: {{ product.price | currency: '£' }}</strong></p>
+          <button id="add-to-cart" type="button" class="btn btn-info" ng-show="product.name">Add to Cart</button>
         </div>
-    </body>
+      </div>
+    </div>
+  </body>
 </html>

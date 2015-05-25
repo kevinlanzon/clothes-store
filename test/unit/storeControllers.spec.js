@@ -23,5 +23,11 @@ describe('storeControllers', function() {
     it('initializes with an empty shopping cart', function(){
       expect(scope.shoppingCart).toEqual([]);
     });
+
+    it('can add a product to the shopping cart', function() {
+      $httpBackend.flush()
+      scope.add(scope.products[0]);
+      expect(scope.shoppingCart.length).toEqual(1);
+    });
   });
 });
