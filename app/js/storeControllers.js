@@ -8,7 +8,8 @@ app.controller('ProductListCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.shoppingCart = [];
 
-  $scope.add = function(product) {
-    $scope.shoppingCart.push(product);
+  $scope.addProduct = function(index) {
+
+    $scope.shoppingCart.push($scope.products[index]);
   };
 }]);

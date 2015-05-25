@@ -26,7 +26,7 @@ describe('storeControllers', function() {
 
     it('can add a product to the shopping cart', function() {
       $httpBackend.flush()
-      scope.add(scope.products[0]);
+      scope.addProduct(scope.products[0]);
       expect(scope.shoppingCart.length).toEqual(1);
     });
   });

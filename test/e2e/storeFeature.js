@@ -10,7 +10,8 @@ describe('Store', function() {
   });
 
   it('displays 13 products', function() {
-    expect(productList.count()).toBe(13);
+    var products = element.all(by.repeater('product in products'));
+    expect(products.count()).toEqual(13);
   });
 
   it('displays the product name', function() {
