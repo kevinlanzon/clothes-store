@@ -11,9 +11,9 @@ describe('storeControllers', function() {
           respond([{name: 'Mock Product 1', price: 50}, {name: 'Mock Product 2', price: 50}]);
 
       $httpBackend.expectGET('products/vouchers.json').
-          respond([{ name: '5Off', value: 5, minSpend: 0   },
-                   { name: '10Off', value: 10, minSpend: 50 },
-                   { name: '15Off', value: 15, minSpend: 75 }
+          respond([{name: '5off', value: 5, minSpend: 1},
+                   {name: '10off', value: 10, minSpend: 50},
+                   {name: '15off', value: 15, minSpend: 75}
                   ]);
 
       scope = $rootScope.$new();
@@ -21,7 +21,7 @@ describe('storeControllers', function() {
       $httpBackend.flush();
     }));
 
-    it('should create "products" model with 2 products fetched from xhr', function() {
+    it('should create "productList" model with 2 products fetched from xhr', function() {
       expect(scope.products).toEqual([{name: 'Mock Product 1', price: 50}, {name: 'Mock Product 2', price: 50}]);
     });
 
@@ -43,12 +43,6 @@ describe('storeControllers', function() {
       scope.addProduct(0);
       scope.addProduct(1);
       expect(scope.cartTotal()).toEqual(100);
-    });
-
-    it('can apply a £5 discount voucher to the shopping cart total', function() {
-      scope.addProduct(0);
-      scope.addDiscount('5Off');
-      expect(scope.discountedTotal).toEqual(45);
     });
   });
 });

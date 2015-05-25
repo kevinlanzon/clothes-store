@@ -32,8 +32,14 @@ app.controller('ProductListCtrl', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.addDiscount = function(voucher) {
+    $scope.buttonClicked = false;
     if(($scope.cartTotal() >= voucher.minSpend)) {
       $scope.discount.push(voucher);
+      $scope.voucherMsg = "Your voucher has been accepted";
+      $scope.buttonClicked = true;
+    } else {
+      $scope.voucherMsg = "Voucher Invalid"
     };
   };
 }]);
+

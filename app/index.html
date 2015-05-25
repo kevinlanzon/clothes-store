@@ -32,7 +32,6 @@
         </div>
       </div>
     </div>
-
     <div class="col-sm-4">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -41,15 +40,19 @@
         <div>
           <h5 class="panel panel-default cart-total">Total: {{ cartTotal() | currency: '£' }}</h5>
         </div>
-          <div class="panel-body" ng-repeat="product in shoppingCart track by $index">
-            <strong>{{product.name}} : {{product.price | currency: '£'}}</strong>
-            <a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-xs" role="button">X</a>
-
-            <div class="panel-body" ng-repeat="voucher in vouchers">
+          <table class="table" ng-repeat="product in shoppingCart track by $index">
+          <tr>
+            <td><strong>{{product.name}} : {{product.price | currency: '£'}}</strong></td>
+            <td><a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-xs" role="button">X</a></td>
+          </tr>
+          <table>
+            <table class="table-bordered" ng-repeat="voucher in vouchers">
+            <tr>
+              <td>
               <a href ng-click="addDiscount(voucher)" class="btn btn-success btn-sm" role="button">{{voucher.name}}</a>
-           </div>
-
-
+                <h5>{{voucherMsg}}</h5>
+              </td>
+            </tr>
           </div>
         </div>
       </div>
