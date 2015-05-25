@@ -14,8 +14,7 @@
 
     <body ng-controller="ProductListCtrl" class="container">
 
-      <nav class="navbar navbar-default">
-        <h1>Clothes Store</h1>
+      <nav class="navbar navbar-default"><h1>Clothes Store</h1>
         <input class="navbar navbar-default" ng-model="query" placeholder="Search">
       </nav>
 
@@ -39,7 +38,7 @@
           <h4 class="panel-title">Shopping Cart</h4>
         </div>
         <div class="panel-body" ng-repeat="product in shoppingCart track by $index">
-          {{product.name}} : {{product.price | currency: '£'}}
+          <strong>{{product.name}} : {{product.price | currency: '£'}}</strong>
           <a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-sm" role="button">X</a>
         </div>
       </div>

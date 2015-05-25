@@ -4,6 +4,9 @@ describe('Store', function() {
     browser.get('index.html');
     products = element.all(by.repeater('product in products'));
     query = element(by.model('query'));
+    addProduct = element.all(by.id('add-to-cart')).get(0);
+    removeProduct = element.all(by.id('remove-from-cart')).get(0);
+    shoppingCart = element.all(by.repeater('product in shoppingCart'));
   });
 
   it('has a title', function() {
@@ -36,6 +39,17 @@ describe('Store', function() {
 
   it('displays an Add to Cart button for each product', function() {
     expect(element(by.id('add-to-cart')).isPresent()).toEqual(true);
+  });
+
+  it('should add a product to the shopping cart', function() {
+    addProduct.click();
+    expect(shoppingCart.count()).toEqual(1);
+  });
+
+  it('should remove a product to the shopping cart', function() {
+    addProduct.click();
+    removeProduct.click();
+    expect(shoppingCart.count()).toEqual(0);
   });
 
   it('should filter the product list as a user types into the search box', function() {
