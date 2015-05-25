@@ -1,0 +1,17 @@
+[
+  {
+    "name": "£ 5 Discount Voucher",
+    "value": 5,
+    "minSpend": 0
+  },
+  {
+    "name": "£10 Discount Voucher",
+    "value": 10,
+    "minSpend": 50
+  },
+  {
+    "name": "£15 Discount Voucher",
+    "value": 15,
+    "minSpend": 75
+  }
+]

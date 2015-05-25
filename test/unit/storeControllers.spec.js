@@ -10,6 +10,12 @@ describe('storeControllers', function() {
       $httpBackend.expectGET('products/productList.json').
           respond([{name: 'Mock Product 1', price: 50}, {name: 'Mock Product 2', price: 50}]);
 
+      $httpBackend.expectGET('products/vouchers.json').
+          respond([{ name: '5Off', value: 5, minSpend: 0   },
+                   { name: '10Off', value: 10, minSpend: 50 },
+                   { name: '15Off', value: 15, minSpend: 75 }
+                  ]);
+
       scope = $rootScope.$new();
       ctrl = $controller('ProductListCtrl', {$scope: scope});
       $httpBackend.flush();
@@ -41,8 +47,8 @@ describe('storeControllers', function() {
 
     it('can apply a £5 discount voucher to the shopping cart total', function() {
       scope.addProduct(0);
-      scope.addDiscount('£ 5 Discount Voucher');
-      expect(scope.cartTotal()).toEqual(45);
+      scope.addDiscount('5Off');
+      expect(scope.discountedTotal).toEqual(45);
     });
   });
 });
