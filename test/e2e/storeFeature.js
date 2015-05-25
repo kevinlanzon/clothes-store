@@ -2,7 +2,7 @@ describe('Store', function() {
 
   beforeEach(function() {
     browser.get('index.html');
-    productList = element.all(by.tagName('h4'));
+    products = element.all(by.repeater('product in products'));
   });
 
   it('has a title', function() {
@@ -10,7 +10,6 @@ describe('Store', function() {
   });
 
   it('displays 13 products', function() {
-    var products = element.all(by.repeater('product in products'));
     expect(products.count()).toEqual(13);
   });
 
@@ -39,14 +38,13 @@ describe('Store', function() {
   });
 
   it('should filter the product list as a user types into the search box', function() {
-    var productList = element.all(by.repeater('product in products'));
     var query = element(by.model('query'));
-    expect(productList.count()).toBe(13);
+    expect(products.count()).toEqual(13);
     query.sendKeys('Suede Shoes');
-    expect(productList.count()).toBe(1);
+    expect(products.count()).toEqual(1);
 
     query.clear();
     query.sendKeys('Flip Flops');
-    expect(productList.count()).toBe(2);
+    expect(products.count()).toEqual(2);
   });
 });
