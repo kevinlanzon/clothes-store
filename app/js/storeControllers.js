@@ -5,4 +5,7 @@ app.controller('ProductListCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.products = data;
 
   });
+
+  $scope.shoppingCart = [];
+
 }]);
