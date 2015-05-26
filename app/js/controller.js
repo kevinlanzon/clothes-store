@@ -1,4 +1,4 @@
-app.controller('ProductListCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('StoreController', ['$scope', '$http', function($scope, $http) {
 
   $http.get('products/productList.json').success(function(data) {
     $scope.products = data;
@@ -38,7 +38,7 @@ app.controller('ProductListCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.voucherMsg = "Your voucher has been accepted";
       $scope.buttonClicked = true;
     } else {
-      $scope.voucherMsg = "Voucher Invalid"
+      $scope.voucherMsg = "Voucher invalid"
     };
   };
 }]);

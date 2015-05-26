@@ -1,3 +1,34 @@
+/*=================NAVBAR=================*/
+.navbar {
+  background-color: #5cb85c;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+  font-size: xx-large;
+}
+
+.btn-default {
+  color: white;
+  background-color: black;
+  border-color: gray;
+}
+
+#search-input {
+  background-color: white;
+  margin: 1em 0.2em 1.5em 0;
+}
+
+/*=================SHOPPING CART=================*/
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/*=================SHOP PRODUCTS=================*/
+
 body {
   padding-top: 0px;
 }

@@ -3,6 +3,12 @@ Clothes Store
 
 A responsive clothes store.
 
+Screenshot
+---
+<div align="center">
+        <img width="105%" src="app/images/screen-shot.png">
+</div>
+
 Requirements
 -------
 

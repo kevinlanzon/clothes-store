@@ -7,6 +7,7 @@ describe('Store', function() {
     addProduct = element.all(by.id('add-to-cart')).get(0);
     removeProduct = element.all(by.id('remove-from-cart')).get(0);
     shoppingCart = element.all(by.repeater('product in shoppingCart'));
+    fiveVoucher = element.all(by.className('discount-button')).get(0);
   });
 
   it('has a title', function() {
@@ -59,9 +60,10 @@ describe('Store', function() {
     expect(element(by.css('.cart-total')).getText()).toEqual('Total: £297.00');
   });
 
-  xit('can add a discount voucher to the shopping cart', function(){
-    addProduct.click()
-    expect(element(by.css('.total')).getText()).toContain('Total: £94.00');
+  it('can add a discount voucher to the shopping cart', function(){
+    addProduct.click();
+    fiveVoucher.click();
+    expect(element(by.css('.cart-total')).getText()).toContain('Total: £94.00');
   });
 
   it('should filter the product list as a user types into the search box', function() {

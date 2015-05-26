@@ -30,7 +30,7 @@
     "canPurchase": true
   },
   {
-    "name": "Flip Flops",
+    "name": "Flip Flops - Red",
     "id": "3",
     "colour": "Red",
     "category": "Men's Footwear",
@@ -40,7 +40,7 @@
     "canPurchase": true
   },
   {
-    "name": "Flip Flops",
+    "name": "Flip Flops - Blue",
     "id": "4",
     "colour": "Blue",
     "category": "Men's Footwear",
