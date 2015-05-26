@@ -1,7 +1,7 @@
 Clothes Store
 ============
 
-A responsive clothes store
+A responsive clothes store.
 
 Requirements
 -------
@@ -20,6 +20,12 @@ Requirements
 
 - [x] As a User I am unable to add Out of Stock products to the shopping cart
 
+- [x] Website is responsive
+
+Approach
+--------
+I decided to use AngularJS, building the website by writing feature tests with Protractor first to fulfill the requirements in the order above and Karma with Jasmine for unit testing. I wasn't sure if I should use Express as a server but decided against it to keep things simple. The product data and voucher data have been mocked in a RESTful API in separate JSON files.
+
 
 Technologies used
 ----
@@ -30,6 +36,7 @@ Technologies used
 - HTML
 - CSS
 - Bootstrap
+- Photoshop
 
 How to clone this repo
 ----
@@ -42,12 +49,21 @@ Setup
 - Make sure you have bower installed (run 'bower -v')
 - Run npm install
 - Run bower install
+- Run npm start
+- Visit http//localhost:8000/app
 
 How to run tests
 ----
 ```sh
-cd clothes-store
-run npm start
-run npm test for the unit tests
-run npm protractor for the end to end tests
+$ cd clothes-store
+$ run npm start
+$ npm test
+$ npm protractor
 ```
+To do
+--------
+- Limit the amount of times a voucher can be used
+- Update the stock count when a product has been added to the cart
+- Create voucher codes to redeem a discount
+- Improve styling
+
