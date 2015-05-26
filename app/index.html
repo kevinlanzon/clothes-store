@@ -2,9 +2,7 @@
 <html lang="en" ng-app="clothesStore">
   <head>
     <meta charset="utf-8">
-
     <title>Clothes Store</title>
-
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="bower_components/angular/angular.js"></script>
@@ -12,21 +10,16 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controller.js"></script>
-
   </head>
     <body ng-controller="StoreController">
-
-
       <nav class="navbar navbar-default">
       <div class="container-fluid">
-      <a id="brand" class="navbar-brand" href="#/">Clothes Store</a>
+        <a id="brand" class="navbar-brand" href="#/">Clothes Store</a>
         <input id="search-input" class="navbar-form navbar-right" ng-model="query" placeholder="Search">
-
       </nav>
       </div>
       <div class="col-md-8">
-
-          <div class="col-sm-6" ng-repeat="product in products | filter:query">
+        <div class="col-sm-6" ng-repeat="product in products | filter:query">
           <div class="thumbnail">
             <img src="{{product.image}}">
             <h4>{{product.name}}</h4>
@@ -36,13 +29,13 @@
             <p><strong>Price: {{product.price | currency: '£'}}</strong></p>
             <p><a href id="add-to-cart" ng-click="addProduct($index)" ng-show="product.canPurchase"class="btn btn-info">Add to Cart</a></p>
             <button id="sold-out" type="button" class="btn btn-danger" ng-show="product.soldOut">Out of Stock</button>
+          </div>
         </div>
       </div>
-    </div>
     <div class="col-sm-4">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">Shopping Cart - Total: {{cartTotal() | currency: '£'}}</h4>
+          <h4 id="cart-total" class="panel-title">Shopping Cart - Total: {{cartTotal() | currency: '£'}}</h4>
         </div>
           <table class="table" ng-repeat="product in shoppingCart track by $index">
             <tr>
@@ -53,7 +46,7 @@
             <table class="table-bordered" ng-repeat="voucher in vouchers">
             <tr>
               <td>
-                <a href ng-click="addDiscount(voucher)" class="btn btn-success btn-sm discount-button" role="button">{{voucher.name}}</a>
+                <a href id="discount" ng-click="addDiscount(voucher)" class="btn btn-success btn-sm discount-button" role="button">{{voucher.name}}</a>
                 <h5>{{voucherMsg}}</h5>
               </td>
             </tr>

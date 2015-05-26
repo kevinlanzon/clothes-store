@@ -43,4 +43,3 @@ describe('StoreController', function() {
     expect(scope.cartTotal()).toEqual(100);
   });
 });
-

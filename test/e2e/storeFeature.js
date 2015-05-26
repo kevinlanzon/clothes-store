@@ -56,14 +56,13 @@ describe('Store', function() {
   it('should display the total value of the shopping cart', function() {
     addProduct.click();
     addProduct.click();
-    addProduct.click();
-    expect(element(by.css('.cart-total')).getText()).toEqual('Total: £297.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart - Total: £198.00');
   });
 
   it('can add a discount voucher to the shopping cart', function(){
     addProduct.click();
     fiveVoucher.click();
-    expect(element(by.css('.cart-total')).getText()).toContain('Total: £94.00');
+    expect(element(by.id('cart-total')).getText()).toContain('Total: £94.00');
   });
 
   it('should filter the product list as a user types into the search box', function() {

@@ -38,8 +38,7 @@ app.controller('StoreController', ['$scope', '$http', function($scope, $http) {
       $scope.voucherMsg = "Your voucher has been accepted";
       $scope.buttonClicked = true;
     } else {
-      $scope.voucherMsg = "Voucher invalid"
+      $scope.voucherMsg = "Voucher invalid";
     };
   };
 }]);
-
