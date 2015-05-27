@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/kevinlanzon/clothes-store/badges/gpa.svg)](https://codeclimate.com/github/kevinlanzon/clothes-store)
 Clothes Store
 ============
 
