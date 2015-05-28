@@ -23,10 +23,11 @@
             <td><a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-xs" role="button">Remove</a></td>
           </tr>
           <table>
+          <div>{{voucherMsg}}</div>
           <table class="table" ng-repeat="voucher in vouchers">
             <tr>
              <td>
-              <a href id="discount" ng-click="addDiscount(voucher)" class="btn btn-success btn-sm discount-button" role="button">{{voucher.name}} : {{voucherMsg}}</a>
+              <a href id="discount" ng-click="addDiscount(voucher)" class="btn btn-success btn-sm discount-button" role="button">{{voucher.name}}</a>
             </td>
           </tr>
         </div>
