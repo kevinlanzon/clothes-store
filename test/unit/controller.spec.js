@@ -47,4 +47,10 @@ describe('StoreController', function() {
     scope.fiveVoucher();
     expect(scope.discount).toEqual(5);
   });
+
+  it('accepts a £10 discount voucher', function() {
+    scope.total = 55;
+    scope.tenVoucher();
+    expect(scope.discount).toEqual(10);
+  });
 });

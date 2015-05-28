@@ -34,10 +34,23 @@ app.controller('StoreController', ['$scope', '$http', function($scope, $http) {
     $scope.text = 'Voucher Accepted!'
   };
 
+  $scope.tenVoucher = function() {
+    if($scope.total > 50) {
+      $scope.discount = 10;
+    } else if ($scope.total <= 50) {
+      $scope.text = 'Invalid';
+    };
+    $scope.cartTotal();
+  };
+
   $scope.addDiscount = function() {
     if ($scope.text == '5off') {
       $scope.fiveVoucher();
-      };
+    } else if ($scope.text == '10off') {
+      $scope.tenVoucher();
+    } else {
+      $scope.text = 'Invalid';
+    };
     $scope.cartTotal();
   };
 }]);

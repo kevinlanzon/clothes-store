@@ -67,6 +67,15 @@ describe('Store', function() {
     expect(element(by.id('cart-total')).getText()).toContain('Total: £94.00');
   });
 
+  it('can add a £10 discount code "10off" when the cart total is over £50', function() {
+    addProduct.click();
+    addProduct.click();
+    expect(element(by.id('cart-total')).getText()).toEqual('Total: £198.00');
+    discountForm.sendKeys('10off');
+    discountSubmit.click();
+    expect(element(by.id('cart-total')).getText()).toEqual('Total: £188.00');
+  });
+
   it('should filter the product list as a user types into the search box', function() {
     expect(products.count()).toEqual(13);
     query.sendKeys('Suede Shoes');
