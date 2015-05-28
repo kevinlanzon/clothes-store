@@ -9,7 +9,9 @@ app.controller('StoreController', ['$scope', '$http', function($scope, $http) {
   });
 
   $scope.shoppingCart = [];
-  $scope.discount = [];
+  $scope.total = 0;
+  $scope.discount = 0;
+  $scope.text = '';
 
   $scope.addProduct = function(index) {
     $scope.shoppingCart.push($scope.products[index]);
@@ -20,25 +22,22 @@ app.controller('StoreController', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.cartTotal = function() {
-    var total = 0;
+    $scope.total = 0;
     angular.forEach($scope.shoppingCart, function(product) {
-      total += product.price;
+      $scope.total += product.price;
     });
-
-    angular.forEach($scope.discount, function(voucher) {
-      total -= voucher.value;
-    })
-    return total;
+    return $scope.total -= $scope.discount;
   };
 
-  $scope.addDiscount = function(voucher) {
-    $scope.buttonClicked = false;
-    if(($scope.cartTotal() >= voucher.minSpend)) {
-      $scope.discount.push(voucher);
-      $scope.voucherMsg = "Your voucher has been accepted";
-      $scope.buttonClicked = true;
-    } else {
-      $scope.voucherMsg = "Voucher invalid";
-    };
+  $scope.fiveVoucher = function() {
+    $scope.discount = 5;
+    $scope.text = 'Voucher Accepted!'
+  };
+
+  $scope.addDiscount = function() {
+    if ($scope.text == '5off') {
+      $scope.fiveVoucher();
+      };
+    $scope.cartTotal();
   };
 }]);

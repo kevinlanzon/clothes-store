@@ -42,4 +42,9 @@ describe('StoreController', function() {
     scope.addProduct(1);
     expect(scope.cartTotal()).toEqual(100);
   });
+
+  it('accepts a £5 discount voucher', function() {
+    scope.fiveVoucher();
+    expect(scope.discount).toEqual(5);
+  });
 });

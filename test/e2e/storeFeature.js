@@ -4,10 +4,11 @@ describe('Store', function() {
     browser.get('index.html');
     products = element.all(by.repeater('product in products'));
     query = element(by.model('query'));
+    discountForm = element(by.id('discount'));
+    discountSubmit = element(by.id('submit-discount'));
     addProduct = element.all(by.id('add-to-cart')).get(0);
     removeProduct = element.all(by.id('remove-from-cart')).get(0);
     shoppingCart = element.all(by.repeater('product in shoppingCart'));
-    fiveVoucher = element.all(by.className('discount-button')).get(0);
   });
 
   it('has a title', function() {
@@ -56,12 +57,13 @@ describe('Store', function() {
   it('should display the total value of the shopping cart', function() {
     addProduct.click();
     addProduct.click();
-    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart - Total: £198.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Total: £198.00');
   });
 
-  it('can add a discount voucher to the shopping cart', function(){
+  it('can add a £5 discount code "5off" to the shopping cart', function() {
     addProduct.click();
-    fiveVoucher.click();
+    discountForm.sendKeys('5off');
+    discountSubmit.click();
     expect(element(by.id('cart-total')).getText()).toContain('Total: £94.00');
   });
 

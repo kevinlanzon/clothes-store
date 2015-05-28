@@ -8,29 +8,32 @@
         <p>{{product.quantity}} Available</p>
         <p><strong>Price: {{product.price | currency: '£'}}</strong></p>
         <p><a href id="add-to-cart" ng-click="addProduct($index)" ng-show="product.canPurchase"class="btn btn-info">Add to Cart</a></p>
-        <button id="sold-out" type="button" class="btn btn-danger" ng-show="product.soldOut">Out of Stock</button>
+      <button id="sold-out" type="button" class="btn btn-danger" ng-show="product.soldOut">Out of Stock</button>
     </div>
   </div>
 </div>
   <div class="col-sm-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 id="cart-total" class="panel-title">Shopping Cart - Total: {{cartTotal() | currency: '£'}}</h4>
+        <h4 id="cart" class="panel-title">Shopping Cart</h4>
       </div>
         <table class="table" ng-repeat="product in shoppingCart track by $index">
           <tr>
             <td><strong>{{product.name}} : {{product.price | currency: '£'}}</strong></td>
             <td><a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-xs" role="button">Remove</a></td>
           </tr>
-          <table>
-          <div>{{voucherMsg}}</div>
-          <table class="table" ng-repeat="voucher in vouchers">
-            <tr>
-             <td>
-              <a href id="discount" ng-click="addDiscount(voucher)" class="btn btn-success btn-sm discount-button" role="button">{{voucher.name}}</a>
-            </td>
-          </tr>
+            <table>
+              <tr>
+                <td>
+                  <div>
+                    <h4 id='cart-total'>Total: {{cartTotal() | currency : '£'}}</h4>
+                     <form ng-submit="addDiscount()" name='voucher' class='voucher-form'>
+                      <input type='text' ng-model='text' name='voucher' id='discount' placeholder="Enter your Discount Code">
+                      <input type="submit" id="submit-discount" value="Submit"/>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
