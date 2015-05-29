@@ -4,10 +4,6 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
     $scope.products = data;
   });
 
-  $http.get('products/vouchers.json').success(function (data) {
-    $scope.vouchers = data;
-  });
-
   $scope.shoppingCart = [];
   $scope.total = 0;
   $scope.discount = 0;

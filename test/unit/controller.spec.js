@@ -6,13 +6,7 @@ describe('StoreController', function() {
   beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
     $httpBackend = _$httpBackend_;
     $httpBackend.expectGET('products/productList.json').
-        respond([{name: 'Mock Product 1', price: 50, quantity: 5}, {name: 'Mock Product 2', price: 50, quantity: 5}]);
-
-    $httpBackend.expectGET('products/vouchers.json').
-        respond([{name: '5off', value: 5, minSpend: 1},
-                 {name: '10off', value: 10, minSpend: 50},
-                 {name: '15off', value: 15, minSpend: 75}
-                ]);
+      respond([{name: 'Mock Product 1', price: 50, quantity: 5}, {name: 'Mock Product 2', price: 50, quantity: 5}]);
 
     scope = $rootScope.$new();
     ctrl = $controller('StoreController', {$scope: scope});

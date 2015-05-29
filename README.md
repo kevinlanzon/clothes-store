@@ -24,7 +24,7 @@ Requirements
 
 Approach
 --------
-I decided to use AngularJS, building the app by writing feature tests with Protractor first to fulfill the requirements in the order above and Karma with Jasmine for unit testing. I wasn't sure if I should use Express as a server but decided against it to keep things simple. The product data and voucher data have been mocked in a RESTful API in separate JSON files.
+I decided to use AngularJS, building the app by writing feature tests with Protractor first to fulfill the requirements in the order above and Karma with Jasmine for unit testing. I wasn't sure if I should use Express as a server but decided against it to keep things simple. The product data has been mocked in a RESTful API in a JSON file.
 
 Technologies used
 ----
@@ -76,8 +76,13 @@ $ run npm start
 $ npm test
 $ npm run protractor
 ```
+Voucher Codes
+----
+- For £ 5.00 off your order use '5off'
+- For £10.00 off your order when you spend over £50 use '10off'
+- For £15.00 off when you spend over £75 and you have bought at least one item of footwear use '15off'
+
 To do
 --------
-- Update the stock count when a product has been added to the cart
 - A seperate view for the shopping cart
 - Improve styling
