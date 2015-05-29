@@ -44,8 +44,10 @@ File Structure
   - js
     - app.js: Contains angular module
     - controller.js: Contains the controller
-  -index.html: Contains the html layout
-- test:
+  - index.html: Contains the main html
+  - partials
+    - store.html: Contains the homepage layout
+- test
   - e2e
     - storeFeature.js: Contains end to end tests
   - unit
@@ -76,9 +78,6 @@ $ npm run protractor
 ```
 To do
 --------
-- Limit the amount of times a voucher can be used
 - Update the stock count when a product has been added to the cart
-- Create voucher codes to redeem a discount
-- Refactor some of the html into partials
 - A seperate view for the shopping cart
 - Improve styling

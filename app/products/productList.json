@@ -74,10 +74,9 @@
   },
   {
     "name": "Fine Stripe Short Sleeve Shirt",
-    "colour": "Green",
+    "colour": "Green - Was £49.99!",
     "category": "Men's Casualwear",
     "image": "images/green_stripe_shirt.jpg",
-    "old_price": 49.99,
     "price": 39.99,
     "quantity": 3,
     "canPurchase": true

@@ -53,4 +53,31 @@ describe('StoreController', function() {
     scope.tenVoucher();
     expect(scope.discount).toEqual(10);
   });
+
+  it('does not accept a £10 discount voucher if the cart value is £50 or below', function() {
+    scope.total = 50;
+    scope.tenVoucher();
+    expect(scope.discount).toEqual(0);
+  });
+
+  it('accepts a £15 discount voucher if the cart value is over £75 and contains an item of footwear', function() {
+    scope.total = 76;
+    scope.shoppingCart = [{"category": "Men’s Footwear"}];
+    scope.fifteenVoucher();
+    expect(scope.discount).toEqual(15);
+  });
+
+  it('does not accept a £15 discount voucher if the cart value is over £75 and does not include an item of footwear', function() {
+    scope.total = 76;
+    scope.shoppingCart = [{"category": "Men’s Casualwear"}];
+    scope.fifteenVoucher();
+    expect(scope.discount).toEqual(0);
+  });
+
+  it('does not accept a £15 discount voucher if the cart value is £75 or below', function() {
+    scope.total = 75;
+    scope.shoppingCart = [{"category": "Men’s Footwear"}];
+    scope.fifteenVoucher();
+    expect(scope.discount).toEqual(0);
+  });
 });
