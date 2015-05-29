@@ -2,7 +2,7 @@
 Clothes Store
 ============
 
-A responsive clothing store built with AngularJS.
+A responsive store for a clothing retailer built with AngularJS. The store contains six different categories of clothing and a shopping cart with the option to redeem discount vouchers.
 
 Screenshot
 ---
@@ -24,7 +24,7 @@ Requirements
 
 Approach
 --------
-I decided to use AngularJS, building the app by writing feature tests with Protractor first to fulfill the requirements in the order above and Karma with Jasmine for unit testing. I wasn't sure if I should use Express as a server but decided against it to keep things simple. The product data has been mocked in a RESTful API in a JSON file.
+I decided to use AngularJS, building the app by writing feature tests with Protractor first to fulfill the requirements in the order above and Karma with Jasmine for unit testing. I wasn't sure if I should use Express as a server but decided against it to keep things simple. The product data has been mocked in a RESTful API in a JSON file and the discounts can be applied by entering voucher codes for each offer. The codes are **5off**, **10off** and **15off**.
 
 Technologies used
 ----
@@ -41,12 +41,18 @@ File Structure
 ----------------
 ```
 - app
+  - css
+    - app.css
+    - bootstrap.min.css
+  - images
   - js
     - app.js: Contains angular module
     - controller.js: Contains the controller
-  - index.html: Contains the main html
   - partials
     - store.html: Contains the homepage layout
+  - products
+    - productList.json: Contains the product data
+  - index.html: Contains the main html
 - test
   - e2e
     - storeFeature.js: Contains end to end tests
@@ -78,9 +84,9 @@ $ npm run protractor
 ```
 Voucher Codes
 ----
-- For £ 5.00 off your order use '5off'
-- For £10.00 off your order when you spend over £50 use '10off'
-- For £15.00 off when you spend over £75 and you have bought at least one item of footwear use '15off'
+- For £ 5.00 off your order use **5off**
+- For £10.00 off your order when you spend over £50 use **10off**
+- For £15.00 off when you spend over £75 and you have bought at least one item of footwear use **15off**
 
 To do
 --------
