@@ -84,6 +84,19 @@ describe('Store', function() {
     expect(element(by.id('cart-total')).getText()).toEqual('Total: £84.00');
   });
 
+  it('it displays a message if the correct voucher code is used', function() {
+    addProduct.click();
+    discountForm.sendKeys('5off');
+    discountSubmit.click();
+    expect(discountForm.getAttribute('value')).toEqual('Voucher Accepted!');
+  });
+
+  it('it displays an error message if the incorrect voucher code is used', function() {
+    discountForm.sendKeys('hello');
+    discountSubmit.click();
+    expect(discountForm.getAttribute('value')).toEqual('Voucher Invalid');
+  });
+
   it('should filter the product list as a user types into the search box', function() {
     expect(products.count()).toEqual(13);
     query.sendKeys('Suede Shoes');

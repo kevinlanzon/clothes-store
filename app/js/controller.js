@@ -14,7 +14,9 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
   $scope.text = '';
 
   $scope.addProduct = function (index) {
-    $scope.shoppingCart.push($scope.products[index]);
+    var product = $scope.products[index];
+    if (product.quantity > 0)
+      $scope.shoppingCart.push($scope.products[index]);
   };
 
   $scope.removeProduct = function (index) {
@@ -56,7 +58,7 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
   };
 
    $scope.hasFootwear = function (product) {
-    if (product.search('Footwear') > -1) {
+    if (product.search('Footwear') >= 1) {
       return true;
     }
   };
@@ -70,6 +72,19 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
       $scope.fifteenVoucher();
     } else {
       $scope.text = 'Voucher Invalid';
+    }
+  };
+
+  $scope.outOfStock = function (product) {
+    if (product.quantity === 0) {
+      return true;
+    }
+    return false;
+  };
+
+  $scope.stockMsg = function (product) {
+    if ($scope.outOfStock(product) === true) {
+      return 'This item is out of stock';
     }
   };
 }]);

@@ -6,7 +6,7 @@ describe('StoreController', function() {
   beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
     $httpBackend = _$httpBackend_;
     $httpBackend.expectGET('products/productList.json').
-        respond([{name: 'Mock Product 1', price: 50}, {name: 'Mock Product 2', price: 50}]);
+        respond([{name: 'Mock Product 1', price: 50, quantity: 5}, {name: 'Mock Product 2', price: 50, quantity: 5}]);
 
     $httpBackend.expectGET('products/vouchers.json').
         respond([{name: '5off', value: 5, minSpend: 1},
@@ -20,7 +20,7 @@ describe('StoreController', function() {
   }));
 
   it('should create "productList" model with 2 products fetched from xhr', function() {
-    expect(scope.products).toEqual([{name: 'Mock Product 1', price: 50}, {name: 'Mock Product 2', price: 50}]);
+    expect(scope.products).toEqual([{name: 'Mock Product 1', price: 50, quantity: 5}, {name: 'Mock Product 2', price: 50, quantity: 5}]);
   });
 
   it('initializes with an empty shopping cart', function() {
@@ -79,5 +79,21 @@ describe('StoreController', function() {
     scope.shoppingCart = [{"category": "Men’s Footwear"}];
     scope.fifteenVoucher();
     expect(scope.discount).toEqual(0);
+  });
+
+  it('knows when a product is categorised as Footwear', function() {
+    expect(scope.hasFootwear("Men's Footwear")).toBe(true);
+  });
+
+  it('knows when the stock level of a product is at 0', function() {
+    expect(scope.outOfStock({"quantity": 0})).toBe(true);
+  });
+
+  it('knows when a product has stock available', function(){
+    expect(scope.outOfStock({"quantity": 1})).toBe(false);
+  });
+
+  it('displays a message when out of stock', function() {
+    expect(scope.stockMsg({"quantity": 0})).toEqual('This item is out of stock');
   });
 });

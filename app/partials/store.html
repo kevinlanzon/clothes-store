@@ -5,10 +5,9 @@
         <h4>{{product.name}}</h4>
         <p>Description: {{product.colour}}</p>
         <p>Category: {{product.category}}</p>
-        <p>{{product.quantity}} Available</p>
+        <p>{{product.quantity}}: Available <strong>{{stockMsg(product)}}</strong></p>
         <p><strong>Price: {{product.price | currency: '£'}}</strong></p>
         <p><a href id="add-to-cart" ng-click="addProduct($index)" ng-show="product.canPurchase"class="btn btn-info">Add to Cart</a></p>
-      <button id="sold-out" type="button" class="btn btn-danger" ng-show="product.soldOut">Out of Stock</button>
     </div>
   </div>
 </div>
