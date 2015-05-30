@@ -8,7 +8,7 @@ describe('Store', function() {
     discountSubmit = element(by.id('submit-discount'));
     addProduct = element.all(by.id('add-to-cart')).get(0);
     removeProduct = element.all(by.id('remove-from-cart')).get(0);
-    shoppingCart = element.all(by.repeater('product in shoppingCart'));
+    shoppingCart = element.all(by.repeater('shopping in shoppingCart'));
   });
 
   it('has a title', function() {
@@ -57,31 +57,31 @@ describe('Store', function() {
   it('should display the total value of the shopping cart', function() {
     addProduct.click();
     addProduct.click();
-    expect(element(by.id('cart-total')).getText()).toEqual('Total: £198.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart £198.00');
   });
 
   it('can add a £5 discount code "5off" to the shopping cart', function() {
     addProduct.click();
     discountForm.sendKeys('5off');
     discountSubmit.click();
-    expect(element(by.id('cart-total')).getText()).toContain('Total: £94.00');
+    expect(element(by.id('cart-total')).getText()).toContain('Shopping Cart £94.00');
   });
 
   it('can add a £10 discount code "10off" when the cart total is over £50', function() {
     addProduct.click();
     addProduct.click();
-    expect(element(by.id('cart-total')).getText()).toEqual('Total: £198.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart £198.00');
     discountForm.sendKeys('10off');
     discountSubmit.click();
-    expect(element(by.id('cart-total')).getText()).toEqual('Total: £188.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart £188.00');
   });
 
   it('can add a £15 discount code "15off" when the cart total is over £75 and includes footwear', function() {
     addProduct.click();
-    expect(element(by.id('cart-total')).getText()).toEqual('Total: £99.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart £99.00');
     discountForm.sendKeys('15off');
     discountSubmit.click();
-    expect(element(by.id('cart-total')).getText()).toEqual('Total: £84.00');
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart £84.00');
   });
 
   it('it displays a message if the correct voucher code is used', function() {

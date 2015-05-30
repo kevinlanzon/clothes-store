@@ -37,7 +37,8 @@ describe('StoreController', function() {
     expect(scope.cartTotal()).toEqual(100);
   });
 
-  it('accepts a £5 discount voucher', function() {
+  it('accepts a £5 discount voucher if the cart value is over £5', function() {
+    scope.total = 6;
     scope.fiveVoucher();
     expect(scope.discount).toEqual(5);
   });

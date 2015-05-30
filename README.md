@@ -90,5 +90,6 @@ Voucher Codes
 
 To do
 --------
+- Refactor the voucher discount into a single method
 - A seperate view for the shopping cart
 - Improve styling

@@ -28,8 +28,12 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
   };
 
   $scope.fiveVoucher = function () {
-    $scope.discount = 5;
-    $scope.text = 'Voucher Accepted!';
+    if ($scope.total > 5) {
+      $scope.discount = 5;
+      $scope.text = 'Voucher Accepted!';
+    } else if ($scope.total <= 5) {
+      $scope.text = 'Voucher Invalid';
+    }
   };
 
   $scope.tenVoucher = function () {
@@ -38,7 +42,7 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
       $scope.text = 'Voucher Accepted!';
     } else if ($scope.total <= 50) {
       $scope.text = 'Voucher Invalid';
-   }
+    }
   };
 
   $scope.fifteenVoucher = function () {
