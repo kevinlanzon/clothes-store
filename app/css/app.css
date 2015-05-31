@@ -36,12 +36,8 @@
   border-color: black;
 }
 
-.panel-title{
+.panel-title {
   text-align: left;
-}
-
-.panel-footer {
-  background-color: #5cb85c;
 }
 
 #discount {
@@ -49,8 +45,8 @@
   width: 15em;
 }
 
-#basket-total {
-  text-align: center;
+.shopping-total {
+  text-indent: 9px;
 }
 
 /*=================SHOP PRODUCTS=================*/
@@ -58,14 +54,9 @@
 body {
   background-color: #D0D0D0;
   padding-top: 100px;
-  padding-bottom: 100px;
 }
 
-.products {
-  list-style: none;
-}
-
-#stock-msg {
+.stock-msg {
   color: red;
 }
 
@@ -82,10 +73,8 @@ body {
   width: 150px;
 }
 
-.products li {
-  clear: both;
-  height: 120px;
-  padding-top: 100px;
+.footer {
+  background-color: black;
 }
 
 a {

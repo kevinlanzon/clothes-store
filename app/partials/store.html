@@ -5,7 +5,7 @@
         <h4>{{product.name}}</h4>
         <p>Description: {{product.colour}}</p>
         <p>Category: {{product.category}}</p>
-        <p>{{product.quantity}}: Available <strong id="stock-msg">{{stockMsg(product)}}</strong></p>
+        <p>{{product.quantity}}: Available <strong class="stock-msg">{{stockMsg(product)}}</strong></p>
         <p><strong>Price: {{product.price | currency: '£'}}</strong></p>
         <p><a href id="add-to-cart" ng-click="addProduct($index)" ng-show="product.canPurchase"class="btn btn-info">Add to Cart</a></p>
     </div>
@@ -20,19 +20,19 @@
     <table class="table" ng-repeat="shopping in shoppingCart track by $index">
       <tr>
         <td><strong>{{shopping.name}}</strong></td>
-        <td class="tg-s6z2">{{shopping.price | currency: '£'}}</td>
+        <td class="tg-s6z2"><strong>{{shopping.price | currency: '£'}}</strong></td>
         <td><a href id="remove-from-cart" ng-click="removeProduct($index)" class="btn btn-danger btn-xs" role="button">Remove</a></td>
       </tr>
     </table>
     <table>
       <tr>
         <td>
-          <h4 id="basket-total">Total: {{cartTotal() | currency:"£"}}</h4>
+          <h4 class="shopping-total">Total: {{cartTotal() | currency:"£"}}</h4>
           <div>
-          <form class="navbar-form navbar-right" ng-submit="addDiscount()" name='voucher' class='voucher-form'>
+          <form class="navbar-form navbar-right" ng-submit="addDiscount()" name='voucher' id='voucher-form'>
             <div class="form-group">
               <input type="text" ng-model="text" class="form-control" name="voucher" id="discount" placeholder="Discount Code eg: '5off'">
-              <input type="submit" id="submit-discount" value="Submit" class="btn btn-info btn-xs"/>
+              <input type="submit" id="submit-discount" value="Submit" class="btn btn-info btn-xs">
             </div>
           </form>
           </div>

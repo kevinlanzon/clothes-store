@@ -24,7 +24,7 @@ Requirements
 
 Approach
 --------
-I decided to use AngularJS, building the app by writing feature tests with Protractor first to fulfill the requirements in the order above and Karma with Jasmine for unit testing. I wasn't sure if I should use Express as a server but decided against it to keep things simple. The product data has been mocked in a RESTful API in a JSON file and the discounts can be applied by entering voucher codes for each offer. The codes are **5off**, **10off** and **15off**.
+I decided to use AngularJS, building the app by writing feature tests with Protractor first to fulfill the requirements in the order above and Karma with Jasmine for unit testing. I wasn't sure if I should use Express as a server but decided against it to keep things simple. The product data has been mocked in a RESTful API and the discounts can be applied by entering voucher codes for each offer. The codes are **5off**, **10off** and **15off**.
 
 Technologies used
 ----
@@ -47,7 +47,7 @@ File Structure
   - images
   - js
     - app.js: Contains angular module
-    - controller.js: Contains the controller
+    - storeController.js: Contains the controller
   - partials
     - store.html: Contains the homepage layout
   - products
@@ -57,7 +57,7 @@ File Structure
   - e2e
     - storeFeature.js: Contains end to end tests
   - unit
-    - controller.spec.js: Contains unit tests
+    - storeController.spec.js: Contains unit tests
 ```
 
 How to clone this repo
@@ -92,4 +92,5 @@ To do
 --------
 - Refactor the voucher discount into a single method
 - A seperate view for the shopping cart
+- Clear the discount form after a voucher code has been applied
 - Improve styling

@@ -30,7 +30,7 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
   $scope.fiveVoucher = function () {
     if ($scope.total > 5) {
       $scope.discount = 5;
-      $scope.text = 'Voucher Accepted!';
+      $scope.text = '£5 discount accepted';
     } else if ($scope.total <= 5) {
       $scope.text = 'Voucher Invalid';
     }
@@ -39,7 +39,7 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
   $scope.tenVoucher = function () {
     if ($scope.total > 50) {
       $scope.discount = 10;
-      $scope.text = 'Voucher Accepted!';
+      $scope.text = '£10 discount accepted';
     } else if ($scope.total <= 50) {
       $scope.text = 'Voucher Invalid';
     }
@@ -50,7 +50,7 @@ app.controller('StoreController', ['$scope', '$http', function ($scope, $http) {
       var checkFootwear = $scope.hasFootwear(product.category);
       if (checkFootwear === true && $scope.total > 75) {
         $scope.discount = 15;
-        $scope.text = 'Voucher Accepted!';
+        $scope.text = '£15 discount accepted';
       } else if ($scope.total <= 75 || !checkFootwear) {
       $scope.text = 'Voucher Invalid';
       }

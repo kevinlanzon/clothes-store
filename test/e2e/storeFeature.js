@@ -1,4 +1,4 @@
-describe('Store', function() {
+describe('Clothes Store', function() {
 
   beforeEach(function() {
     browser.get('index.html');
@@ -7,7 +7,7 @@ describe('Store', function() {
     discountForm = element(by.id('discount'));
     discountSubmit = element(by.id('submit-discount'));
     addProduct = element.all(by.id('add-to-cart')).get(0);
-    removeProduct = element.all(by.id('remove-from-cart')).get(0);
+    removeProduct= element(by.css('[ng-click="removeProduct($index)"]'));
     shoppingCart = element.all(by.repeater('shopping in shoppingCart'));
   });
 
@@ -31,7 +31,7 @@ describe('Store', function() {
     expect(element(by.binding('product.colour')).isPresent()).toBe(true);
   });
 
-  it('displays the product colour', function() {
+  it('displays the product category', function() {
     expect(element(by.binding('product.category')).isPresent()).toBe(true);
   });
 
@@ -88,13 +88,24 @@ describe('Store', function() {
     addProduct.click();
     discountForm.sendKeys('5off');
     discountSubmit.click();
-    expect(discountForm.getAttribute('value')).toEqual('Voucher Accepted!');
+    expect(discountForm.getAttribute('value')).toEqual('£5 discount accepted');
   });
 
   it('it displays an error message if the incorrect voucher code is used', function() {
     discountForm.sendKeys('hello');
     discountSubmit.click();
     expect(discountForm.getAttribute('value')).toEqual('Voucher Invalid');
+  });
+
+  it('should only allow one discount voucher code to be used per order', function(){
+    addProduct.click();
+    discountForm.sendKeys('10off');
+    discountSubmit.click();
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart £89.00');
+    discountForm.clear();
+    discountForm.sendKeys('5off');
+    discountSubmit.click();
+    expect(element(by.id('cart-total')).getText()).toEqual('Shopping Cart £94.00');
   });
 
   it('should filter the product list as a user types into the search box', function() {
