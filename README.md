@@ -91,6 +91,6 @@ Voucher Codes
 To do
 --------
 - Refactor the voucher discount into a single method
-- A seperate view for the shopping cart
+- A separate view for the shopping cart
 - Clear the discount form after a voucher code has been applied
 - Improve styling
