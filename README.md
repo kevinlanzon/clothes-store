@@ -78,7 +78,7 @@ How to run tests
 ----
 ```sh
 $ cd clothes-store
-$ run npm start
+$ npm start
 $ npm test
 $ npm run protractor
 ```
