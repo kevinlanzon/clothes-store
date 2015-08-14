@@ -29,7 +29,8 @@ I decided to use AngularJS, building the app by writing feature tests with Protr
 Technologies used
 ----
 - AngularJS
-- NodeJS
+- Node.js
+- Express.js
 - Karma for unit testing
 - Protractor for feature testing
 - HTML
@@ -67,18 +68,18 @@ git clone https://github.com/kevinlanzon/clothes-store
 ```
 Setup
 -----
-- Make sure you have node.js installed (run 'node -v')
-- Make sure you have bower installed (run 'bower -v')
-- Run npm install
-- Run bower install
-- Run npm start
-- Visit http//localhost:8000/app
+```sh
+$ npm install
+$ bower install
+$ npm start
+Visit http//localhost:3000
+```
 
 How to run tests
 ----
 ```sh
 $ cd clothes-store
-$ run npm start
+$ npm start
 $ npm test
 $ npm run protractor
 ```
