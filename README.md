@@ -7,7 +7,7 @@ A responsive store for a clothing retailer built with AngularJS. The store conta
 Screenshot
 ---
 <div align="center">
-  <img width="105%" src="app/images/screen-shot.png">
+  <img width="105%" src="public/images/screen-shot.png">
 </div>
 
 Requirements
