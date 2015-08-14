@@ -5,7 +5,7 @@ describe('StoreController', function() {
 
   beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('products/productList.json').
+    $httpBackend.expectGET('public/products/productList.json').
       respond([{name: 'Mock Product 1', price: 50, quantity: 5}, {name: 'Mock Product 2', price: 50, quantity: 5}]);
 
     scope = $rootScope.$new();

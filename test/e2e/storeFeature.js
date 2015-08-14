@@ -1,7 +1,7 @@
 describe('Clothes Store', function() {
 
   beforeEach(function() {
-    browser.get('index.html');
+    browser.get('/');
     products = element.all(by.repeater('product in products'));
     query = element(by.model('query'));
     discountForm = element(by.id('discount'));
